@@ -1,7 +1,9 @@
-/* Midnight palette — canonical source: theme.css in eagleadams86/lottery */
+/* Midnight palette — canonical source: tokens.json in eagleadams86/claude-theme-pack
+   (the private source of truth for every app's palette; values are WCAG AA verified
+   by its check_contrast.py — don't retune here, change the pack and re-copy). */
 :root {
   --bg:#0a0e1a; --bg-card:#121829; --bg-card-alt:#1b2238; --border:#262f4a; --border-strong:#374163;
-  --text-primary:#e7eaf6; --text-secondary:#aab2d0; --text-muted:#7e87a8;
+  --text-primary:#e7eaf6; --text-secondary:#aab2d0; --text-muted:#838cab;
   --accent:#818cf8; --green:#4ade80; --red:#fb7185;
   --radius:14px;
 }
