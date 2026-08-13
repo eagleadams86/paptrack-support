@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Same CSP as index.html — see the note there. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <title>PAPTrack — Privacy Policy</title>
 <link rel="icon" type="image/png" href="assets/icon.png">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 <div class="wrap">
@@ -22,7 +24,7 @@
     <a href="privacy.html" class="active">Privacy Policy</a>
   </nav>
 
-  <p class="meta" style="margin-top:0;border-top:none;padding-top:0;">Effective July 21, 2026</p>
+  <p class="meta plain">Effective July 21, 2026</p>
 
   <p>PAPTrack is built to work entirely on your device. This page explains exactly what data exists, where it goes, and who can see it.</p>
 
