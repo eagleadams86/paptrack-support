@@ -1,23 +1,18 @@
-/* Midnight palette — canonical source: tokens.json in eagleadams86/claude-theme-pack
-   (the private source of truth for every app's palette; values are WCAG AA verified
-   by its check_contrast.py — don't retune here, change the pack and re-copy). */
-:root {
-  --bg:#0a0e1a; --bg-card:#121829; --bg-card-alt:#1b2238; --border:#262f4a; --border-strong:#374163;
-  --text-primary:#e7eaf6; --text-secondary:#aab2d0; --text-muted:#838cab;
-  --accent:#818cf8; --green:#72fe84; --red:#fb7874;
-  --radius:14px;
-}
+/* ── Palette ────────────────────────────────────────────────────────────────
+   Comes from `theme.css`, linked before this file — the pack's generated file,
+   copied byte-for-byte, the same one every app in the family reads. Until
+   2026-08-18 this block held a hand-picked midnight-only SUBSET of the tokens;
+   the values were right, but a subset is a copy, and a copy is what drifts.
+   Linking the whole file also brings the other three themes along. Nothing here
+   selects one, so :root — midnight — applies, exactly as before.
+   --radius came across at 14px against the pack's 10px. That divergence is
+   gone: this site now takes the pack's radius like every other app.
+   Never retune anything here: change the pack's tokens.json, run its
+   check_contrast.py gate, rebuild, re-copy.
+──────────────────────────────────────────────────────────────────────────── */
 
 * { box-sizing: border-box; }
-/* iOS text autosizing off — the same rule the pack emits into theme.css for the
-   apps that link it. This site inlines a midnight-only subset of the palette
-   instead, so it has to carry the rule itself. Safari on a phone inflates the
-   font of a block it judges to be a wide column of small text, in landscape
-   only, leaving the headings beside it alone. `100%`, never `none`: `none` also
-   switches off the reader's own text scaling, which is a setting, not a bug.
-   The CSP here is `style-src 'self'`, so this belongs in the stylesheet — an
-   inline <style> in the page would simply be blocked. */
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+/* text-size-adjust: theme.css declares it now (pack rule 9), not here. */
 
 body {
   margin: 0;
