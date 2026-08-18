@@ -9,6 +9,15 @@
 }
 
 * { box-sizing: border-box; }
+/* iOS text autosizing off — the same rule the pack emits into theme.css for the
+   apps that link it. This site inlines a midnight-only subset of the palette
+   instead, so it has to carry the rule itself. Safari on a phone inflates the
+   font of a block it judges to be a wide column of small text, in landscape
+   only, leaving the headings beside it alone. `100%`, never `none`: `none` also
+   switches off the reader's own text scaling, which is a setting, not a bug.
+   The CSP here is `style-src 'self'`, so this belongs in the stylesheet — an
+   inline <style> in the page would simply be blocked. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 body {
   margin: 0;
