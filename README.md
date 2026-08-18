@@ -2,6 +2,8 @@
 
 Privacy policy + support page for the [PAPTrack](https://github.com/eagleadams86/paptrack-ios) iOS app (private repo), published via GitHub Pages: https://eagleadams86.github.io/paptrack-support/
 
+PAPTrack 1.0 is live on the App Store: https://apps.apple.com/us/app/paptrack-cpap-supply-tracker/id6793314905 — the support page's hero carries the download link.
+
 Static HTML, no build step — same pattern as the other `eagleadams86` sites (`lottery`, `artifacts`). `style.css` is the shared Midnight-theme stylesheet.
 
 Both pages carry a strict Content-Security-Policy (`default-src 'none'`, no script at all,
