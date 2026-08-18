@@ -63,7 +63,7 @@ nav.links a {
   border-radius: 999px;
 }
 
-nav.links a:hover, nav.links a.active {
+nav.links a:hover, nav.links a.active, nav.links a[aria-current="page"] {
   color: var(--text-primary);
   border-color: var(--border-strong);
   background: var(--bg-card);
