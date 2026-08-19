@@ -52,14 +52,12 @@ header.hero p {
   font-size: 14px;
 }
 
-/* The App Store call-to-action under the hero title. Text colour is var(--bg)
-   on purpose: the pack's onAccent token holds the same value as bg (dark ink
-   on the accent fill) and this file's palette copy doesn't carry onAccent. */
+/* The App Store call-to-action under the hero title: pack ink-on-accent-fill pair. */
 a.store-link {
   display: inline-block;
   margin-top: 10px;
   background: var(--accent);
-  color: var(--bg);
+  color: var(--on-accent);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;

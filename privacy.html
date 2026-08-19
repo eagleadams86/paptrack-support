@@ -8,7 +8,7 @@
 <title>PAPTrack — Privacy Policy</title>
 <link rel="icon" type="image/png" href="assets/icon.png">
 <link rel="stylesheet" href="theme.css">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 <div class="wrap">
@@ -25,7 +25,7 @@
     <a href="privacy.html" class="active" aria-current="page">Privacy Policy</a>
   </nav>
 
-  <p class="meta plain">Effective July 21, 2026</p>
+  <p class="meta plain">Effective August 18, 2026</p>
 
   <p>PAPTrack is built to work entirely on your device. This page explains exactly what data exists, where it goes, and who can see it.</p>
 
@@ -37,7 +37,7 @@
     <p><strong>On your device (always).</strong> Your supply list is stored locally on your iPhone. This is the only copy that exists if you never touch the two optional sync features below.</p>
   </div>
   <div class="card">
-    <p><strong>iCloud (on by default, if you're signed into iCloud).</strong> PAPTrack mirrors your list through Apple's <code>NSUbiquitousKeyValueStore</code> so it stays in sync across your own iPhones and iPads. This data is stored in your personal iCloud account under Apple's own privacy terms — PAPTrack's developer never sees it. Turn it off by signing out of iCloud on the device, or by disabling iCloud Drive for PAPTrack in iOS Settings.</p>
+    <p><strong>iCloud (on by default, if you're signed into iCloud).</strong> PAPTrack mirrors your list through Apple's <code>NSUbiquitousKeyValueStore</code> so it stays in sync across your own iPhones and iPads. This data is stored in your personal iCloud account under Apple's own privacy terms — PAPTrack's developer never sees it. Signing out of iCloud on the device stops the syncing.</p>
   </div>
   <div class="card">
     <p><strong>Google sign-in / Firestore (optional, off until you choose it).</strong> If you tap "Sign in" in Settings, PAPTrack sends your supply list, your Google account email, and display name to a Firebase/Firestore database operated by the developer, so the same list can appear in the companion web app. This only happens if you sign in — the app never does this on its own.</p>
@@ -55,7 +55,7 @@
   </ul>
 
   <h2>Your Choices</h2>
-  <p>You can delete any item from within the app at any time. Deleting the app removes the on-device copy and, if iCloud sync was on, the iCloud copy. If you've signed in with Google, you can sign out from Settings at any time to stop future syncing; to have your previously-synced data deleted from the developer's Firestore database, email <a href="mailto:eagleadams86@gmail.com">eagleadams86@gmail.com</a> and it will be removed.</p>
+  <p>You can delete any item from within the app at any time. Deleting the app removes the on-device copy. If iCloud sync was on, a copy may remain in your personal iCloud account — where only you and Apple can reach it — and may reappear if you reinstall the app; signing out of iCloud stops any further syncing. If you've signed in with Google, you can sign out from Settings at any time to stop future syncing; to have your previously-synced data deleted from the developer's Firestore database, email <a href="mailto:eagleadams86@gmail.com">eagleadams86@gmail.com</a> and it will be removed.</p>
 
   <h2>Children's Privacy</h2>
   <p>PAPTrack is not directed at children and does not knowingly collect data from anyone under 13.</p>
@@ -66,7 +66,8 @@
   <h2>Contact</h2>
   <p><a href="mailto:eagleadams86@gmail.com">eagleadams86@gmail.com</a></p>
 
-  <div class="meta">&copy; 2026 Charles Adams — an independent personal project,
+  <div class="meta"><a href="https://github.com/eagleadams86/paptrack-support">How it works</a> &middot;
+    &copy; 2026 Charles Adams — an independent personal project,
     <a href="https://github.com/eagleadams86/paptrack-support/blob/main/LICENSE">MIT licensed</a>.</div>
 </div>
 </body>
