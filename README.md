@@ -12,4 +12,17 @@ browser origin with the other apps' saved data, so even a static page keeps its 
 which also means **no inline `style="…"` attributes here**: put the rule in `style.css` (see
 `.meta.plain`) or the CSP will block it.
 
+`tests.html` pins all of the above rather than trusting it: a CSP on both pages naming no
+external host, no `<script>` anywhere, **no inline `style=` attribute or `<style>` block** (the
+rule stated above — a blocked inline style does not error, the page just quietly renders
+wrong), `theme.css` linked before `style.css`, no colour hard-coded in either the pages or
+`style.css`, both pages asking for the same `?v=` of `style.css`, the App Store link matching
+the id in this README, and `.nojekyll` present and empty. It runs on `localhost` only:
+
+```bash
+python3 -m http.server 8018   # then open http://localhost:8018/tests.html
+```
+
+CI runs the same page headlessly in Chromium on every push, alongside CodeQL.
+
 `privacy.html` promises that emailing the contact address gets a user's synced data deleted. The runbook for actually doing that — mapping the email address to the right Firestore document, and what to tell them about the copies that can't be reached — lives in the (private) iOS repo at [`DATA_DELETION.md`](https://github.com/eagleadams86/paptrack-ios/blob/main/DATA_DELETION.md). If the wording of the promise in `privacy.html` changes, check that runbook still matches it.
