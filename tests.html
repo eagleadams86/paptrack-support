@@ -189,6 +189,9 @@ PAGES.forEach((f) => {
   });
 });
 t('style.css pulls nothing from another host either', () => {
+  /* Guarded before the negations. Every assertion below is a NOT, and a NOT over
+     an empty string passes — a file that failed to load would report green here. */
+  ok(STYLE, 'style.css did not load — the negation below would pass on an empty string');
   ok(!/@import|url\(\s*['"]?https?:/i.test(STYLE), 'style.css reaches off-origin');
 });
 
@@ -213,6 +216,7 @@ t('theme.css is the pack file, with all four themes', () => {
 t('style.css holds layout only — no colour of its own', () => {
   /* The drift check. Shadows and rings are neutrals, allowed family-wide; a hex
      or an rgb() colour is a palette value and belongs in the pack. */
+  ok(STYLE, 'style.css did not load — both checks below pass on an empty string');
   const body = STYLE.replace(/box-shadow:[^;]+;/g, '').replace(/\/\*[\s\S]*?\*\//g, '');
   eq(body.match(/#[0-9a-fA-F]{3,8}\b/g) || [], [],
      'style.css hard-codes a colour instead of using a var(--…) token');
