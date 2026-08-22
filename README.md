@@ -25,7 +25,9 @@ pill-shaped nav links. `:focus-visible`, so a mouse click never draws it. It can
 page: `style-src` here is `'self'` with no `'unsafe-inline'`.
 
 `tests.html` pins all of the above rather than trusting it: a CSP on both pages naming no
-external host, no `<script>` anywhere, **no inline `style=` attribute or `<style>` block** (the
+external host (the dev page itself is the one exception — since 2026-08-22 its own CSP
+names `https://api.github.com`, for the CI-scorecard line it shows when opened on the live
+site where it declines to run; `index.html` and `privacy.html` name nothing), no `<script>` anywhere, **no inline `style=` attribute or `<style>` block** (the
 rule stated above — a blocked inline style does not error, the page just quietly renders
 wrong), `theme.css` linked before `style.css`, no colour hard-coded in either the pages or
 `style.css`, both pages asking for the same `?v=` of `style.css`, **a real `<main>` and a real
