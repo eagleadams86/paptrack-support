@@ -100,6 +100,22 @@ p, li { color: var(--text-secondary); }
 
 a { color: var(--accent); }
 
+/* The keyboard's view of this page. Every sibling app draws its own focus ring
+   from the pack's --focus-border rather than leaving the browser's default,
+   which on the midnight page is a thin ring the theme has no say over — and on
+   the pill-shaped nav links it traced a rectangle round a rounded control.
+   `:focus-visible`, not `:focus`, so a mouse click never draws it. */
+a:focus-visible,
+nav.links a:focus-visible,
+a.store-link:focus-visible {
+  outline: 2px solid var(--focus-border);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+/* The pills and the store button already have their own radius; matching it
+   keeps the ring on the shape rather than around it. */
+nav.links a:focus-visible, a.store-link:focus-visible { border-radius: 999px; }
+
 ul { padding-left: 20px; }
 
 .card {

@@ -254,6 +254,35 @@ t('both pages carry How it works, the copyright and the licence line', () => {
     ok(/&copy; 2026 Charles Adams/.test(s), f + ': the copyright line');
   });
 });
+group('Landmarks — a real main, and a real footer after it');
+/* Added 2026-08-21. Both pages had a <header>, a <nav> and then loose prose:
+   no <main> at all, and a footer that was a styled <div>. A screen reader's
+   landmark list is how a reader skips a page's furniture, and with no main
+   there was nothing to skip TO. Same pair, same order, as every sibling app's
+   privacy page. Comments are stripped first: the notes beside both elements
+   name them in prose, so a page that lost the element and kept the note would
+   otherwise still pass — which is the one way this could rot. */
+PAGES.forEach((f) => {
+  t(f + ' has a real <main>', () => {
+    ok(/<main>/.test(stripComments(SRC[f])),
+       f + ': no main landmark, so contentinfo would be the only one on the page');
+  });
+  t(f + ' has a real <footer>, and main closes before it', () => {
+    const bare = stripComments(SRC[f]);
+    ok(/<footer>/.test(bare),
+       f + ': the footer is a styled <div> — that is not a contentinfo landmark');
+    ok(bare.indexOf('</main>') < bare.indexOf('<footer>'),
+       f + ': a <footer> inside main is not contentinfo at all');
+  });
+});
+t('the pages draw their own focus ring rather than the browser\'s', () => {
+  /* style-src here is 'self' with no unsafe-inline, so this can only live in
+     style.css — and the pack's token is the only colour it may use. */
+  ok(/:focus-visible/.test(STYLE), 'style.css declares no :focus-visible rule at all');
+  ok(/--focus-border/.test(STYLE),
+     'and it must draw the ring from the pack token, not a colour of its own');
+});
+
 t('the privacy policy still promises deletion on request', () => {
   /* README.md points at a runbook in the private iOS repo that only makes sense
      while this promise is on the page. If the wording goes, that note goes too. */

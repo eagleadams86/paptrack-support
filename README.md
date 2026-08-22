@@ -12,12 +12,26 @@ browser origin with the other apps' saved data, so even a static page keeps its 
 which also means **no inline `style="…"` attributes here**: put the rule in `style.css` (see
 `.meta.plain`) or the CSP will block it.
 
+Both pages are a `<main>` / `<footer>` pair, added 2026-08-21 — they had a `<header>`, a
+`<nav>` and then loose prose, with the footer a styled `<div>`. A screen reader's landmark
+list is how a reader skips a page's furniture, and with no `<main>` there was nothing to skip
+*to*. `</main>` closes **before** the `<footer>`: a `<footer>` nested inside `main` is not
+contentinfo at all, it is a plain footer for that section. Same pair, same order, as every
+sibling app's privacy page.
+
+`style.css` draws the keyboard focus ring from the pack's `--focus-border`, rather than leaving
+the browser's default — which the theme has no say over, and which traced a rectangle round the
+pill-shaped nav links. `:focus-visible`, so a mouse click never draws it. It cannot live in the
+page: `style-src` here is `'self'` with no `'unsafe-inline'`.
+
 `tests.html` pins all of the above rather than trusting it: a CSP on both pages naming no
 external host, no `<script>` anywhere, **no inline `style=` attribute or `<style>` block** (the
 rule stated above — a blocked inline style does not error, the page just quietly renders
 wrong), `theme.css` linked before `style.css`, no colour hard-coded in either the pages or
-`style.css`, both pages asking for the same `?v=` of `style.css`, the App Store link matching
-the id in this README, and `.nojekyll` present and empty. It runs on `localhost` only:
+`style.css`, both pages asking for the same `?v=` of `style.css`, **a real `<main>` and a real
+`<footer>` on each page in that order**, a `:focus-visible` rule drawn from the pack token, the
+App Store link matching the id in this README, and `.nojekyll` present and empty. It runs on
+`localhost` only:
 
 ```bash
 python3 -m http.server 8018   # then open http://localhost:8018/tests.html
