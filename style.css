@@ -159,3 +159,20 @@ code {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
 }
+
+/* ── The footer every public page in this account carries ────────────────────
+   Sprint Predictability's, transcribed — it is the design lead for this chrome
+   and a change here belongs there too. Three lines: what the page does with your
+   data, the privacy policy beside the repo under "How it works", and the
+   authorship line, whose TWO links point at NOTICE (who owns it) and LICENSE
+   (the terms) in that order.
+   `footer` is a flex ROW so a cross-link to a sibling can sit at the right-hand
+   end; `.footnotes` keeps the paragraphs stacked inside it, and without that
+   wrapper they become flex items and lay out side by side.
+   The links are MUTED, not accent: provenance at the foot of a document rather
+   than something to click on the way in. */
+footer { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; }
+.footnotes { flex: 1 1 320px; min-width: 0; }
+.privacy { font-size: var(--fs-xs); color: var(--text-muted); margin: 28px 0 0; padding-left: 19px; }
+.privacy-links { margin-top: 6px; }
+.privacy-links a { color: var(--text-muted); }
