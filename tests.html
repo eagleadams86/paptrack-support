@@ -248,7 +248,10 @@ t('style.css holds layout only — no colour of its own', () => {
   /* The drift check. Shadows and rings are neutrals, allowed family-wide; a hex
      or an rgb() colour is a palette value and belongs in the pack. */
   ok(STYLE, 'style.css did not load — both checks below pass on an empty string');
-  const body = STYLE.replace(/box-shadow:[^;]+;/g, '').replace(/\/\*[\s\S]*?\*\//g, '');
+  /* No box-shadow exemption any more: the family dropped elevation shadows on
+     2026-08-23, so a `box-shadow` here would be both a new colour literal AND a
+     new shadow, and this check should see it. */
+  const body = STYLE.replace(/\/\*[\s\S]*?\*\//g, '');
   eq(body.match(/#[0-9a-fA-F]{3,8}\b/g) || [], [],
      'style.css hard-codes a colour instead of using a var(--…) token');
   eq(body.match(/rgba?\([0-9]/g) || [], [],
