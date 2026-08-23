@@ -1,4 +1,4 @@
-/* ── Palette ────────────────────────────────────────────────────────────────
+/* ── Palette and type ───────────────────────────────────────────────────────
    Comes from `theme.css`, linked before this file — the pack's generated file,
    copied byte-for-byte, the same one every app in the family reads. Until
    2026-08-18 this block held a hand-picked midnight-only SUBSET of the tokens;
@@ -9,6 +9,15 @@
    gone: this site now takes the pack's radius like every other app.
    Never retune anything here: change the pack's tokens.json, run its
    check_contrast.py gate, rebuild, re-copy.
+
+   The TYPE comes from the pack too, since 2026-08-23 — every size below is a
+   `--fs-*` step picked by ROLE from the pack's role contract (rule 7b), not a
+   pixel picked by eye. This file linked theme.css and then set `16px/1.6` with
+   its own font stack on top, which is the whole failure mode check_consumers.py
+   cannot see: it hashes theme.css to prove the file ARRIVED, never that the page
+   uses it. Two role calls worth knowing: the store CTA is `--fs-base` because it
+   is a BUTTON, and the nav pills are `--fs-xs` because they are this site's
+   chrome — the same step every headbar button in the family wears.
 ──────────────────────────────────────────────────────────────────────────── */
 
 * { box-sizing: border-box; }
@@ -18,7 +27,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text-primary);
-  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font: var(--fw-normal) var(--fs-base)/var(--lh-base) var(--font-sans);
 }
 
 .wrap {
@@ -42,14 +51,14 @@ header.hero img {
 }
 
 header.hero h1 {
-  font-size: 22px;
+  font-size: var(--fs-xl);
   margin: 0;
 }
 
 header.hero p {
   margin: 2px 0 0;
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: var(--fs-sm);
 }
 
 /* The App Store call-to-action under the hero title: pack ink-on-accent-fill pair. */
@@ -59,8 +68,8 @@ a.store-link {
   background: var(--accent);
   color: var(--on-accent);
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
   padding: 8px 16px;
   border-radius: 999px;
 }
@@ -76,7 +85,7 @@ nav.links {
 nav.links a {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--fs-xs);
   padding: 6px 12px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -89,7 +98,7 @@ nav.links a:hover, nav.links a.active, nav.links a[aria-current="page"] {
 }
 
 h2 {
-  font-size: 18px;
+  font-size: var(--fs-md);
   margin: 32px 0 10px;
   color: var(--text-primary);
 }
@@ -128,7 +137,7 @@ ul { padding-left: 20px; }
 
 .meta {
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: var(--fs-xs);
   margin-top: 48px;
   border-top: 1px solid var(--border);
   padding-top: 16px;
@@ -147,5 +156,6 @@ code {
   background: var(--bg-card-alt);
   padding: 2px 6px;
   border-radius: 4px;
-  font-size: 14px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
 }
