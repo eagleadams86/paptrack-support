@@ -34,21 +34,17 @@
   <p>PAPTrack is built to work entirely on your device. This page explains exactly what data exists, where it goes, and who can see it.</p>
 
   <h2>What Data PAPTrack Stores</h2>
-  <p>The only data PAPTrack collects is what you type in: the names of your CPAP supplies, notes, stock counts, clean/replace dates, and — all optional — a supplier name, a reorder link and what an item costs. Since 22 August 2026 each supply also keeps a short <strong>history of what you marked and when</strong>: the dates you pressed Mark cleaned, Mark replaced or Mark ordered, up to sixty entries per supply, oldest dropped. It is a record of your own taps, kept on exactly the same terms as the rest of your supply list and going only where that list goes.</p>
-
-  <p>Since 22 August 2026 PAPTrack can hold <strong>more than one list</strong> — a profile for each person in a household — and each profile has a short name you choose for it, up to 24 characters. That name stays on your device. It is never sent to iCloud or to Firestore: a synced list is identified by a random internal id, not by whose list it is, so the names you pick are not part of what leaves the phone. A name does appear in a backup file, because a backup is a copy of what is on the device — and that file goes only where you send it.</p>
-
-  <p>There's no account or usage tracking required to use the app.</p>
+  <p>The only data PAPTrack collects is what you type in: the names of your CPAP supplies, notes, stock counts, clean/replace dates, and — all optional — a supplier name, a reorder link and what an item costs. There's no account, profile, or usage tracking required to use the app.</p>
 
   <h2>Where That Data Lives</h2>
   <div class="card">
     <p><strong>On your device (always).</strong> Your supply list is stored locally on your iPhone. This is the only copy that exists if you never touch the two optional sync features below.</p>
   </div>
   <div class="card">
-    <p><strong>iCloud (on by default, if you're signed into iCloud).</strong> PAPTrack mirrors your list through Apple's <code>NSUbiquitousKeyValueStore</code> so it stays in sync across your own iPhones and iPads. If you keep more than one profile, each one is mirrored separately, under a random id rather than the name you gave it. This data is stored in your personal iCloud account under Apple's own privacy terms — PAPTrack's developer never sees it. Signing out of iCloud on the device stops the syncing.</p>
+    <p><strong>iCloud (on by default, if you're signed into iCloud).</strong> PAPTrack mirrors your list through Apple's <code>NSUbiquitousKeyValueStore</code> so it stays in sync across your own iPhones and iPads. This data is stored in your personal iCloud account under Apple's own privacy terms — PAPTrack's developer never sees it. Signing out of iCloud on the device stops the syncing.</p>
   </div>
   <div class="card">
-    <p><strong>Google sign-in / Firestore (optional, off until you choose it).</strong> If you tap "Sign in" in Settings, PAPTrack sends your supply list, your Google account email, and display name to a Firebase/Firestore database operated by the developer, so the same list can appear in the companion web app. If you keep more than one profile, each one's list is stored as its own record under your account, labelled with a random id rather than that profile's name. This only happens if you sign in — the app never does this on its own.</p>
+    <p><strong>Google sign-in / Firestore (optional, off until you choose it).</strong> If you tap "Sign in" in Settings, PAPTrack sends your supply list, your Google account email, and display name to a Firebase/Firestore database operated by the developer, so the same list can appear in the companion web app. This only happens if you sign in — the app never does this on its own.</p>
   </div>
 
   <h2>Notifications</h2>
